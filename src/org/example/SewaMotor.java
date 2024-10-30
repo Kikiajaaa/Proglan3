@@ -31,19 +31,21 @@ public class SewaMotor {
      * methode hitung harga diskon
      *
      * @param sewaMotor untuk hitung harga sewa setelah diskon
+     * @param diskon
      * @return
      */
-    public static double hitungHargaSetelahDiskon(SewaMotor sewaMotor) {
-        return sewaMotor.hargaSewa - (sewaMotor.hargaSewa * (sewaMotor.diskon / 100));  // Menghitung harga sewa setelah diskon
+    public static double hitungHargaSetelahDiskon(SewaMotor sewaMotor, double diskon) {
+        return sewaMotor.hargaSewa - (sewaMotor.hargaSewa * diskon);  // Menghitung harga sewa setelah diskon
     }
 
     /**
-     * methode hitung jumlah diskon
+     * methode hitung jumlah diskon````````````````````````````````````````
      * @param sewaMotor untuk hitung jumlah diskon
+     * @param diskon
      * @return
      */
-    public static double hitungJumlahDiskon(SewaMotor sewaMotor) {
-        return sewaMotor.hargaSewa * (sewaMotor.diskon / 100);  // Menghitung jumlah diskon
+    public static double hitungJumlahDiskon(SewaMotor sewaMotor, double diskon) {
+        return sewaMotor.hargaSewa * (diskon / 100);  // Menghitung jumlah diskon
     }
 
     /**
@@ -55,8 +57,8 @@ public class SewaMotor {
         System.out.println("Tujuan: " + tujuan);
         System.out.println("Harga Sewa Motor: Rp " + hargaSewa);
         System.out.println("Diskon: " + diskon + "%");
-        System.out.printf("Biaya Sewa Setelah Diskon: Rp %.2f%n", hitungHargaSetelahDiskon(this));
-        System.out.printf("Jumlah Diskon: Rp %.2f%n", hitungJumlahDiskon(this));
+        System.out.printf("Biaya Sewa Setelah Diskon: Rp %.2f%n", hitungHargaSetelahDiskon(this, this.diskon / 100));
+        System.out.printf("Jumlah Diskon: Rp %.2f%n", hitungJumlahDiskon(this, this.diskon));
     }
 }
 
